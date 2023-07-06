@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  background: rgb(28, 28, 28);
+  background: radial-gradient(circle, rgb(28, 28, 28) 0%, rgb(21, 21, 21) 100%);
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.header {
+  background: url("./images/bg.png") 300px 100px no-repeat;
+}
+@media screen and (max-width: 1024px) {
+  .header {
+    background: url("./images/bg.png") 0px 50px no-repeat;
+  }
+}
+
+.header-link {
+  @apply p-4 mx-[41px] font-normal text-[24px] before:block before:absolute before:bg-white before:content-[""] before:w-[0px] before:h-[2px] before:top-2 after:block after:absolute after:bg-white after:content-[""] after:w-[0px] after:h-[2px] after:bottom-2 relative inline-block before:transition-all after:transition-all hover:before:w-full hover:after:w-full hover:after:right-0 hover:before:left-0 before:left-0 after:right-0 duration-[350ms] before:duration-[350ms] after:duration-[350ms] max-xl:mx-[20px] max-xl:text-[18px];
+}

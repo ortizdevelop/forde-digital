@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav_btn {
+  @apply p-4 mx-[41px] font-normal text-[24px];
+}
