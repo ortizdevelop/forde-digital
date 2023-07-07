@@ -17,6 +17,26 @@ body {
   }
 }
 
+.middble-block {
+  background: url("./images/bg-big.png") center no-repeat;
+}
+
 .header-link {
-  @apply p-4 mx-[41px] font-normal text-[24px] before:block before:absolute before:bg-white before:content-[""] before:w-[0px] before:h-[2px] before:top-2 after:block after:absolute after:bg-white after:content-[""] after:w-[0px] after:h-[2px] after:bottom-2 relative inline-block before:transition-all after:transition-all hover:before:w-full hover:after:w-full hover:after:right-0 hover:before:left-0 before:left-0 after:right-0 duration-[350ms] before:duration-[350ms] after:duration-[350ms] max-xl:mx-[20px] max-xl:text-[18px];
+  @apply text-white p-4 mx-[41px] font-normal text-[24px] before:block before:absolute before:bg-white before:content-[""] before:w-[0px] before:h-[2px] before:top-2 after:block after:absolute after:bg-white after:content-[""] after:w-[0px] after:h-[2px] after:bottom-2 relative inline-block before:transition-all after:transition-all hover:before:w-full hover:after:w-full hover:after:right-0 hover:before:left-0 before:left-0 after:right-0 duration-[350ms] before:duration-[350ms] after:duration-[350ms] max-xl:mx-[20px] max-xl:text-[18px];
+}
+
+.contact-link {
+  @apply mt-[104px] text-[36px] text-[#1c1c1c] font-normal py-4 px-[30px] bg-stone-300 rounded-lg transition-all duration-300 border border-stone-300 hover:bg-transparent hover:text-stone-300;
+}
+
+.button {
+  @apply my-[104px];
+}
+
+.blue-line {
+  @apply relative inline-block  before:block before:absolute before:content-[''] before:w-[40px] before:h-[2px] before:bg-[#00E0FF] before:top-[21.5px] before:left-[-51.5px];
+}
+
+.bg-radiant {
+  background: radial-gradient(circle, rgb(28, 28, 28) 0%, rgb(21, 21, 21) 100%);
 }

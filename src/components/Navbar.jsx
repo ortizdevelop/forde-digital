@@ -1,5 +1,5 @@
 import logo from "../images/Logo.png";
-import bg from "../images/bg.png";
+import Button from "@mui/material/Button";
 
 function Navbar() {
   return (
@@ -30,17 +30,13 @@ function Navbar() {
             <button className="header-link">Работы</button>
           </li>
           <li className="max-md:hidden lg:block">
-            <button className="header-link">
-              Команда
-            </button>
+            <button className="header-link">Команда</button>
           </li>
           <li className="max-md:hidden lg:block">
-            <button className="header-link">
-              Вопросы
-            </button>
+            <button className="header-link">Вопросы</button>
           </li>
         </ul>
-        <button className="transition-all duration-300 opacity-50 hover:opacity-100 before-inset-1 relative inline-block ">
+        <button className="text-white transition-all duration-300 opacity-50 hover:opacity-100 before-inset-1 relative inline-block ">
           contact@
           <span className="text-[#00E0FF]">forgedigital.ru</span>
         </button>
@@ -50,9 +46,23 @@ function Navbar() {
           <h1 className="text-[64px] font-normal">
             Создаем сайты для вас на <br /> основе ваших <br /> пожеланий
           </h1>
-          <button className="mt-[104px] text-[36px] text-[#1c1c1c] font-normal py-4 px-[30px] bg-stone-300 rounded-lg transition-all duration-300">
+          <Button
+            className="button"
+            sx={{
+              color: "#1c1c1c",
+              background: "#CECECE",
+              "&:hover": { background: "transparent", color: "#CECECE" },
+              border: "2px #CECECE solid",
+              padding: 2,
+              marginTop: 10,
+              fontSize: 36,
+              fontWeight: 500,
+              textTransform: "initial",
+            }}
+            variant="contained"
+          >
             Связаться с нами
-          </button>
+          </Button>
         </section>
       </article>
     </header>
