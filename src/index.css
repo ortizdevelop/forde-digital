@@ -40,3 +40,27 @@ body {
 .bg-radiant {
   background: radial-gradient(circle, rgb(28, 28, 28) 0%, rgb(21, 21, 21) 100%);
 }
+
+.feedback-list {
+  @apply inline-block w-[534px] h-[62px] bg-[#1E1E1E] rounded-[25px] items-center text-center p-3 transition-all duration-500 hover:h-[222px];
+}
+
+.feedback-title {
+  @apply text-white text-[24px] font-semibold group-hover:text-start transition-all duration-500;
+}
+
+.feedback-text {
+  @apply w-[487px] text-white text-[20px] px-[20px] mt-[35px] font-light leading-7 invisible group-hover:visible text-start;
+}
+
+.footer-list {
+  @apply mx-4 before:block before:absolute before:bg-white before:content-[""] before:w-[0px] before:h-[2px] before:top-0 after:block after:absolute after:bg-white after:content-[""] after:w-[0px] after:h-[2px] after:bottom-0 relative inline-block before:transition-all after:transition-all hover:before:w-full hover:after:w-full hover:after:right-0 hover:before:left-0 before:left-0 after:right-0 duration-[350ms] before:duration-[350ms] after:duration-[350ms];
+}
+
+.footer-btn {
+  @apply text-[20px] font-light leading-loose;
+}
+
+.line {
+  @apply relative inline-block  before:block before:absolute before:content-[''] before:w-[60px] before:h-[2px] before:bg-[#00E0FF] before:top-[10px] before:left-[-30px] before:bottom-0 before:right-0;
+}

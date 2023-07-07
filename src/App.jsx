@@ -1,5 +1,7 @@
 import Navbar from "./components/Navbar";
 import About from "./components/About";
+import Feedback from "./components/Feedback";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -7,7 +9,9 @@ function App() {
       <Navbar></Navbar>
       <div className="middble-block">
         <About></About>
+        <Feedback></Feedback>
       </div>
+      <Footer></Footer>
     </div>
   );
 }
