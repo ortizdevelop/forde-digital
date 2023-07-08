@@ -23,44 +23,85 @@ function Feedback() {
   };
 
   const FeedbackForm = () => {
+    const [name, setName] = useState("");
+    const [mail, setMail] = useState("");
+    const [text, setText] = useState("");
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState(null);
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+
+      fetch("/mail.php", {
+        method: "POST",
+        body: new FormData(event.target),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            setSuccess(true);
+            setError(null);
+            setName("");
+            setMail("");
+            setText("");
+          } else {
+            setError(data.error);
+            setSuccess(false);
+          }
+        })
+        .catch((error) => {
+          setError("Ваша запись была отправлена!");
+          setSuccess(false);
+        });
+    };
+
     return (
       <form
-        action="mail.php"
-        method="post"
+        onSubmit={handleSubmit}
         className={`fixed flex flex-col w-full h-[100vh] top-[0%] left-[0%] bg-[rgb(28,28,28,0.85)] z-10 ${formClass}`}
       >
         <div className="fixed flex flex-col top-[5%] left-[15%] form-bg py-[80px] px-[336px]">
-          <label
-            htmlFor=""
-            className="text-center text-white text-[48px] font-bold leading-10 mb-4"
-          >
+          <p className="text-center text-white text-[48px] font-bold leading-10 mb-4">
             Свяжитесь с нами
-          </label>
-          <label
-            htmlFor=""
-            className="mb-12 text-center text-white text-[18px] font-normal leading-relaxed"
-          >
+          </p>
+          <p className="mb-12 text-center text-white text-[18px] font-normal leading-relaxed">
             Заполните поля и отправьте заявку, для того чтобы мы начали работать
             с вами!
-          </label>
+          </p>
           <label htmlFor="name" className="form-label">
             Имя
           </label>
-          <input type="text" className="form-input" />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            className="form-input"
+          />
           <label htmlFor="mail" className="form-label">
             Почта
           </label>
-          <input type="email" className="form-input" name="mail" id="" />
+          <input
+            type="email"
+            id="mail"
+            value={mail}
+            onChange={(event) => setMail(event.target.value)}
+            className="form-input"
+            name="mail"
+          />
           <label htmlFor="text" className="form-label">
             Сообщение
           </label>
           <textarea
-            name=""
-            id=""
+            id="text"
+            name="text"
+            value={text}
             placeholder="Напечатайте свое сообщение..."
             cols="30"
             rows="10"
             className="form-textarea"
+            onChange={(event) => setText(event.target.value)}
           ></textarea>
           <div className="w-full flex flex-row items-center justify-center mb-10">
             <input
