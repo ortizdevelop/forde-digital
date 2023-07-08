@@ -1,12 +1,12 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
-    $mail = $_POST["mail"];
+    $email = $_POST["email"];
     $text = $_POST["text"];
 
     $to = "info@forgedigital.ru, OrtizDevelop@yandex.ru";
     $subject = "Заказ клиента";
-    $message = "Имя: $name\nПочта: $mail\nТекст из формы: $text";
+    $message = "Имя: $name\nПочта: $email\nТекст из формы: $text";
     $headers = "From: no-reply@forgedigital.ru\r\n" .
                "Reply-To: no-reply@forgedigital.ru\r\n" .
                "X-Mailer: PHP/" . phpversion();
