@@ -94,6 +94,7 @@ function Feedback() {
                 textTransform: "initial",
               }}
               variant="contained"
+              type="submit"
               onClick={handleInActiveFormButtonClick}
             >
               Отправить

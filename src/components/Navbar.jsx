@@ -94,6 +94,7 @@ function Navbar() {
                 textTransform: "initial",
               }}
               variant="contained"
+              type="submit"
               onClick={handleInActiveFormButtonClick}
             >
               Отправить
