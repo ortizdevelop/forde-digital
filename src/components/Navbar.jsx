@@ -24,7 +24,7 @@ function Navbar() {
 
   const FeedbackForm = () => {
     const [name, setName] = useState("");
-    const [mail, setMail] = useState("");
+    const [email, setEmail] = useState("");
     const [text, setText] = useState("");
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState(null);
@@ -32,7 +32,7 @@ function Navbar() {
     const handleSubmit = (event) => {
       event.preventDefault();
 
-      fetch("/mail.php", {
+      fetch("/email.php", {
         method: "POST",
         body: new FormData(event.target),
       })
@@ -42,8 +42,9 @@ function Navbar() {
             setSuccess(true);
             setError(null);
             setName("");
-            setMail("");
+            setEmail("");
             setText("");
+            // setIsActive(false);
           } else {
             setError(data.error);
             setSuccess(false);
@@ -57,10 +58,10 @@ function Navbar() {
 
     return (
       <form
-        onSubmit={handleSubmit}
         className={`fixed flex flex-col w-full h-[100vh] top-[0%] left-[0%] bg-[rgb(28,28,28,0.85)] z-10 ${formClass}`}
+        onSubmit={handleSubmit}
       >
-        <div className="fixed flex flex-col top-[5%] left-[15%] form-bg py-[80px] px-[336px]">
+        <div className="fixed top-[5%] left-[15%] form-bg py-[80px] px-[336px]">
           <p className="text-center text-white text-[48px] font-bold leading-10 mb-4">
             Свяжитесь с нами
           </p>
@@ -68,41 +69,50 @@ function Navbar() {
             Заполните поля и отправьте заявку, для того чтобы мы начали работать
             с вами!
           </p>
-          <label htmlFor="name" className="form-label">
-            Имя
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            className="form-input"
-          />
-          <label htmlFor="mail" className="form-label">
-            Почта
-          </label>
-          <input
-            type="email"
-            id="mail"
-            value={mail}
-            onChange={(event) => setMail(event.target.value)}
-            className="form-input"
-            name="mail"
-          />
-          <label htmlFor="text" className="form-label">
-            Сообщение
-          </label>
-          <textarea
-            id="text"
-            name="text"
-            value={text}
-            placeholder="Напечатайте свое сообщение..."
-            cols="30"
-            rows="10"
-            className="form-textarea"
-            onChange={(event) => setText(event.target.value)}
-          ></textarea>
+          <div className="feedback__field">
+            <label htmlFor="name" className="form-label">
+              Имя:
+            </label>
+            <input
+              type="text"
+              id="name"
+              className="form-input"
+              name="name"
+              required
+              placeholder=""
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+            />
+          </div>
+          <div className="feedback__field">
+            <label htmlFor="email" className="form-label">
+              Почта
+            </label>
+            <input
+              type="email"
+              id="email"
+              className="form-input"
+              required
+              placeholder=""
+              name="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+            />
+          </div>
+          <div className="feedback__field">
+            <label htmlFor="text" className="form-label">
+              Сообщение
+            </label>
+            <textarea
+              id="text"
+              className="form-textarea"
+              required
+              placeholder="Напечатайте свое сообщение..."
+              name="text"
+              value={text}
+              onChange={(event) => setText(event.target.value)}
+            ></textarea>
+          </div>
           <div className="w-full flex flex-row items-center justify-center mb-10">
             <input
               type="checkbox"
@@ -119,7 +129,7 @@ function Navbar() {
                 Политикой конфиденциальности
               </button>
             </p>
-          </div>
+          </div>  
           <div className="w-full flex items-center justify-center">
             <Button
               className="button"

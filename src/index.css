@@ -97,6 +97,10 @@ body {
   @apply hidden;
 }
 
+.feedback__field {
+  @apply flex flex-col;
+}
+
 .scrollbar-style {
   /* Firefox */
   * {
