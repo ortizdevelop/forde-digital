@@ -18,7 +18,7 @@ body {
 }
 
 .middble-block {
-  background: url("./images/bg-big.png") center no-repeat;
+  /* background: url("./images/bg-big.png") center no-repeat; */
 }
 
 .header-link {
@@ -26,7 +26,7 @@ body {
 }
 
 .contact-link {
-  @apply mt-[104px] text-[36px] text-[#1c1c1c] font-normal py-4 px-[30px] bg-stone-300 rounded-lg transition-all duration-300 border border-stone-300 hover:bg-transparent hover:text-stone-300;
+  @apply mt-[104px] text-[36px] text-[rgb(28,28,28)] font-normal py-4 px-[30px] bg-stone-300 rounded-lg transition-all duration-300 border border-stone-300 hover:bg-transparent hover:text-stone-300;
 }
 
 .button {
@@ -50,7 +50,7 @@ body {
 }
 
 .feedback-text {
-  @apply w-[487px] text-white text-[20px] px-[20px] mt-[35px] font-light leading-7 invisible group-hover:visible text-start;
+  @apply w-[487px] text-white text-[20px] px-[20px] mt-[35px] font-light leading-7 opacity-0 invisible group-hover:visible group-hover:opacity-100 text-start transition-all duration-75 group-hover:duration-[1250ms];
 }
 
 .footer-list {
@@ -63,4 +63,75 @@ body {
 
 .line {
   @apply relative inline-block  before:block before:absolute before:content-[''] before:w-[60px] before:h-[2px] before:bg-[#00E0FF] before:top-[10px] before:left-[-30px] before:bottom-0 before:right-0;
+}
+
+.form-bg {
+  background: radial-gradient(circle, rgb(28, 28, 28) 0%, rgb(21, 21, 21) 100%);
+}
+
+.form-label {
+  @apply mb-2 text-white text-[16px] font-normal leading-normal;
+}
+
+.form-input {
+  @apply mb-[24px] text-[#1E1E1E] h-12 p-3 bg-white border border border border border-black;
+}
+
+.form-textarea {
+  @apply mb-[24px] text-[#1E1E1E] p-3;
+}
+
+.form-active {
+  @apply block;
+}
+
+.form-inactive {
+  @apply hidden;
+}
+
+.policy-active {
+  @apply block;
+}
+
+.policy-inactive {
+  @apply hidden;
+}
+
+.scrollbar-style {
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #535353 #3a3a3a;
+  }
+
+  /* Chrome, Edge and Safari */
+  *::-webkit-scrollbar {
+    width: 13px;
+    width: 13px;
+  }
+  *::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #3a3a3a;
+  }
+
+  *::-webkit-scrollbar-track:hover {
+    background-color: #3a3a3a;
+  }
+
+  *::-webkit-scrollbar-track:active {
+    background-color: #3a3a3a;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #535353;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #535353;
+  }
+
+  *::-webkit-scrollbar-thumb:active {
+    background-color: #535353;
+  }
 }
