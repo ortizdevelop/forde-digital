@@ -659,7 +659,7 @@ function Navbar() {
   };
 
   return (
-    <header className="header w-full text-white pb-[203px]">
+    <header id="home" className="header w-full text-white pb-[203px]">
       <nav className="flex flex-row items-center justify-around my-[41px] mx-0 xl:justify-around">
         <img className="" src={logo} alt="" />
         <ul className="flex items-center">
@@ -680,16 +680,36 @@ function Navbar() {
             </svg>
           </li>
           <li className="max-md:hidden lg:block">
-            <button className="header-link">О нас</button>
+            <button
+              onClick={(e) => handleButtonClick(e, "about")}
+              className="header-link"
+            >
+              О нас
+            </button>
           </li>
           <li className="max-md:hidden lg:block">
-            <button className="header-link">Работы</button>
+            <button
+              onClick={(e) => handleButtonClick(e, "projects")}
+              className="header-link"
+            >
+              Работы
+            </button>
           </li>
           <li className="max-md:hidden lg:block">
-            <button className="header-link">Команда</button>
+            <button
+              onClick={(e) => handleButtonClick(e, "team")}
+              className="header-link"
+            >
+              Команда
+            </button>
           </li>
           <li className="max-md:hidden lg:block">
-            <button className="header-link">Вопросы</button>
+            <button
+              onClick={(e) => handleButtonClick(e, "feedback")}
+              className="header-link"
+            >
+              Вопросы
+            </button>
           </li>
         </ul>
         <button className="text-white transition-all duration-300 opacity-50 hover:opacity-100 before-inset-1 relative inline-block ">

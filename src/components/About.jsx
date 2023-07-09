@@ -4,7 +4,7 @@ function About() {
   return (
     <article className="text-white flex flex-col w-full h-full">
       <div className="px-[98px]">
-        <section className=" mt-[98px]">
+        <section id="about" className=" mt-[98px]">
           <h2 className="text-[36px] font-normal blue-line mb-[96px]">
             О нашей команде
           </h2>
@@ -14,7 +14,7 @@ function About() {
             подчеркивает вашу уникальность и превращает посетителей в клиентов.
           </p>
         </section>
-        <section className="flex flex-col items-center">
+        <section id="projects" className="flex flex-col items-center">
           <h3 className="w-full blue-line text-[36px] font-normal mb-[42px] items-start justify-start">
             Наши работы
           </h3>
@@ -24,7 +24,10 @@ function About() {
             </div>
           </div>
         </section>
-        <section className="flex flex-col items-start justify-start mt-[122px]">
+        <section
+          id="team"
+          className="flex flex-col items-start justify-start mt-[122px]"
+        >
           <h4 className="blue-line text-[36px] font-normal">Команда</h4>
           <ul className="mt-[100px] items-center">
             <li className="flex mb-[44px] items-center">

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import tg from "../images/icon_tg.svg";
+import { Link } from "react-scroll";
 import Button from "@mui/material/Button";
 
 function Feedback() {
@@ -652,7 +653,7 @@ function Feedback() {
         <h5 className="blue-line text-[36px] font-normal items-start justify-start w-full">
           Часто задаваемые вопросы
         </h5>
-        <section className="flex items-center justify-center">
+        <section id="feedback" className="flex items-center justify-center">
           <ul className="flex w-[70%] flex-wrap items-center justify-between mt-[34px]">
             <li className="group feedback-list mb-[58px]">
               <div className="flex items-center justify-around">
@@ -778,7 +779,13 @@ function Feedback() {
           <div className="w-full flex items-center justify-center my-[46px]">
             <span className="line"></span>
           </div>
-          <img className="mb-9" src={tg} alt="" />
+          <a target="_blank" href="https://t.me/forgedigital">
+            <img
+              className="mb-9 transition-all duration-300 hover:scale-110 cursor-pointer"
+              src={tg}
+              alt=""
+            />
+          </a>
         </section>
         <FeedbackForm />
         <PolicyForm />
