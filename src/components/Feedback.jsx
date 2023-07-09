@@ -22,10 +22,13 @@ function Feedback() {
     setPolicyClass("policy-inactive");
   };
 
+  const [isActive, setIsActive] = useState(false);
+
   const FeedbackForm = () => {
     const [name, setName] = useState("");
-    const [mail, setMail] = useState("");
+    const [email, setEmail] = useState("");
     const [text, setText] = useState("");
+    const [checkbox, setCheckbox] = useState(false);
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState(null);
 
@@ -42,8 +45,9 @@ function Feedback() {
             setSuccess(true);
             setError(null);
             setName("");
-            setMail("");
+            setEmail("");
             setText("");
+            setCheckbox(false);
           } else {
             setError(data.error);
             setSuccess(false);
@@ -57,10 +61,29 @@ function Feedback() {
 
     return (
       <form
+        className={`fixed flex flex-col w-full h-[100vh] top-[0%] left-[0%] bg-[rgb(28,28,28,0.85)] z-10 form-bg-anim ${formClass}`}
         onSubmit={handleSubmit}
-        className={`fixed flex flex-col w-full h-[100vh] top-[0%] left-[0%] bg-[rgb(28,28,28,0.85)] z-10 ${formClass}`}
       >
-        <div className="fixed flex flex-col top-[5%] left-[15%] form-bg py-[80px] px-[336px]">
+        <div className="sticky w-[65%] top-[10%] left-[16%] form-bg py-[80px] px-[336px] bg-anim">
+          <button
+            onClick={handleInActiveFormButtonClick}
+            className="absolute top-5 right-[30px]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#00E0FF"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-8 h-8 text-[#00E0FF]"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
           <p className="text-center text-white text-[48px] font-bold leading-10 mb-4">
             Свяжитесь с нами
           </p>
@@ -68,47 +91,66 @@ function Feedback() {
             Заполните поля и отправьте заявку, для того чтобы мы начали работать
             с вами!
           </p>
-          <label htmlFor="name" className="form-label">
-            Имя
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            className="form-input"
-          />
-          <label htmlFor="mail" className="form-label">
-            Почта
-          </label>
-          <input
-            type="email"
-            id="mail"
-            value={mail}
-            onChange={(event) => setMail(event.target.value)}
-            className="form-input"
-            name="mail"
-          />
-          <label htmlFor="text" className="form-label">
-            Сообщение
-          </label>
-          <textarea
-            id="text"
-            name="text"
-            value={text}
-            placeholder="Напечатайте свое сообщение..."
-            cols="30"
-            rows="10"
-            className="form-textarea"
-            onChange={(event) => setText(event.target.value)}
-          ></textarea>
+          {error && <p className="feedback-error">{error}</p>}
+          {success && (
+            <p className="feedback-success">
+              Спасибо за Ваше сообщение! Мы свяжемся с Вами в ближайшее время.
+            </p>
+          )}
+          <div className="feedback__field">
+            <label htmlFor="name" className="form-label">
+              Имя:
+            </label>
+            <input
+              type="text"
+              id="name"
+              className="form-input"
+              name="name"
+              required
+              placeholder=""
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+            />
+          </div>
+          <div className="feedback__field">
+            <label htmlFor="email" className="form-label">
+              Почта
+            </label>
+            <input
+              type="email"
+              id="email"
+              className="form-input"
+              required
+              placeholder=""
+              name="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+            />
+          </div>
+          <div className="feedback__field">
+            <label htmlFor="text" className="form-label">
+              Сообщение
+            </label>
+            <textarea
+              id="text"
+              className="form-textarea"
+              required
+              placeholder="Напечатайте свое сообщение..."
+              name="text"
+              value={text}
+              onChange={(event) => setText(event.target.value)}
+            ></textarea>
+          </div>
           <div className="w-full flex flex-row items-center justify-center mb-10">
             <input
               type="checkbox"
               name="checkbox"
-              id=""
+              id="checkbox"
+              value={checkbox}
+              required
               className="mr-3 w-[18px] h-[18px] relative bg-white border border border border border-black"
+              checked={checkbox}
+              onChange={(event) => setCheckbox(event.target.checked)}
             />
             <p className="text-white text-[14px] font-normal leading-tight">
               Я согласен с{" "}
@@ -136,7 +178,7 @@ function Feedback() {
               }}
               variant="contained"
               type="submit"
-              onClick={handleInActiveFormButtonClick}
+              oonClick={() => setIsActive(true)}
             >
               Отправить
             </Button>
@@ -144,16 +186,19 @@ function Feedback() {
         </div>
       </form>
     );
-  };  
+  };
 
   const PolicyForm = () => {
     return (
       <form
         action=""
-        className={`fixed flex flex-col w-full h-[100vh] top-[0%] left-[0%] bg-[rgb(24,24,24,0.85)] z-10 ${policyClass}`}
+        className={`fixed flex flex-col w-full h-[100vh] top-[0%] left-[0%] bg-[rgb(24,24,24,0.85)] z-10 form-bg-anim ${policyClass}`}
       >
-        <div className="fixed flex flex-col top-[0%] left-00%] form-bg py-[80px] px-[336px]">
-          <label className="text-[32px] font-normal" htmlFor="">
+        <div className="fixed flex flex-col top-[0%] left-00%] form-bg py-[80px] px-[336px] bg-anim">
+          <label
+            className="text-[32px] text-center mb-11 font-normal"
+            htmlFor=""
+          >
             Политика в отношении обработки персональных данных
           </label>
           <div className="w-[1240px] h-[671px] bg-[#1E1E1E] rounded-tl-[25px] rounded-bl-[25px] overflow-auto scrollbar scrollbar-thumb-[#535353] scrollbar-track-[#3A3A3A] scrollbar-rounded-[5px]">

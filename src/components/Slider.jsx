@@ -5,6 +5,8 @@ import slide1 from "../images/slide1.png";
 import slide2 from "../images/slide2.png";
 import slide3 from "../images/slide3.png";
 import slide4 from "../images/slide4.png";
+import slide5 from "../images/slide5.png";
+import slide6 from "../images/slide6.png";
 import { Stack } from "@mui/material";
 
 function Slider(props) {
@@ -28,8 +30,20 @@ function Slider(props) {
 
     {
       slide: slide4,
+      name: "LAZAREVA",
+      description: "Сайт - визитка для пластического хирурга",
+    },
+
+    {
+      slide: slide5,
       name: "SKVERNA",
       description: "Каталог масок в японском стиле",
+    },
+
+    {
+      slide: slide6,
+      name: "Endless Journey",
+      description: "Сайт для выбора тура по России",
     },
   ];
 
@@ -76,12 +90,16 @@ function Slider(props) {
         ))}
       </Carousel>
       <div className="name-content flex flex-col items-center justify-center relative left-40">
-        <h2 className="text-white text-[22px] font-medium">
-          {items[activeIndex].name}
-        </h2>
-        <p className="text-white text-[22px] font-medium leading-10">
-          {items[activeIndex].description}
-        </p>
+        <div className="w-full">
+          <h2 className="text-white w-[160px] text-[22px] font-medium">
+            {items[activeIndex].name}
+          </h2>
+        </div>
+        <div className="w-full">
+          <p className="text-white w-[362px] text-[22px] font-medium leading-10">
+            {items[activeIndex].description}
+          </p>
+        </div>
       </div>
     </Stack>
   );

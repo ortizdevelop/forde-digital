@@ -3,7 +3,7 @@ import logo from "../images/Logo.png";
 function Footer() {
   return (
     <footer className="text-white w-full bg-[#1E1E1E] py-11">
-      <div className="flex items-center justify-center">
+      <div className="flex pl-[96px] items-center justify-center">
         <nav className="w-full flex items-center justify-around">
           <p className="text-neutral-500 text-[20px] font-light leading-loose">
             ©2023 ForgeDigital | Все права защищены
