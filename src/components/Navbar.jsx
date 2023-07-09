@@ -1,10 +1,22 @@
 import { useState } from "react";
+import { Link } from "react-scroll";
 import logo from "../images/Logo.png";
 import Button from "@mui/material/Button";
 
 function Navbar() {
   const [formClass, setFormClass] = useState("form-inactive");
   const [policyClass, setPolicyClass] = useState("policy-inactive");
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleButtonClick = (event, id) => {
+    event.preventDefault();
+    setIsOpen(!isOpen);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      console.log(`Site scrolled to ${id}`);
+    }
+  };
 
   const handleFormButtonClick = () => {
     setFormClass("form-active");
