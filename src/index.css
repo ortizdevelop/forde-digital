@@ -42,7 +42,7 @@ body {
 }
 
 .feedback-list {
-  @apply inline-block w-[534px] h-[62px] bg-[#1E1E1E] rounded-[25px] items-center text-center p-3 transition-all duration-500 hover:h-[222px];
+  @apply inline-block w-[534px] h-[62px] bg-[#1E1E1E] rounded-[25px] items-center text-center p-3 transition-all duration-500 hover:h-[225px];
 }
 
 .feedback-title {

@@ -654,7 +654,7 @@ function Feedback() {
           Часто задаваемые вопросы
         </h5>
         <section id="feedback" className="flex items-center justify-center">
-          <ul className="flex w-[70%] flex-wrap items-center justify-between mt-[34px]">
+          <ul className="flex w-[70%] h-[590px] flex-wrap items-center justify-between mt-[34px]">
             <li className="group feedback-list mb-[58px]">
               <div className="flex items-center justify-around">
                 <p className="feedback-title">Какие услуги вы предлагаете?</p>
