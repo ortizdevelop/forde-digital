@@ -54,13 +54,14 @@ function Slider(props) {
   };
 
   return (
-    <Stack direction="row" spacing={2}>
+    <Stack direction="row" className="bg-[#1E1E1E] p-5 rounded-lg" spacing={2}>
       <Carousel
         autoPlay={true}
         animation="slide"
         className="w-full flex items-center justify-center"
         duration={700}
-        indicators={false}
+        indicators={true}
+        navButtonsAlwaysVisible={true}
         indicatorIconButtonProps={{
           style: {
             color: "#035A65",
@@ -78,9 +79,12 @@ function Slider(props) {
           style: {
             display: "flex",
             justifyContent: "center",
+            width: "182px",
             position: "relative",
-            paddingRight: "0px",
             marginLeft: "0px",
+            top: "180px",
+            right: "38.5%",
+            zIndex: 5,
           },
         }}
         onChange={handleChange}
@@ -89,14 +93,14 @@ function Slider(props) {
           <Item key={i} item={item} />
         ))}
       </Carousel>
-      <div className="name-content flex flex-col items-center justify-center relative left-40">
+      <div className="name-content flex flex-col relative pl-5">
         <div className="w-full">
-          <h2 className="text-white w-[160px] text-[22px] font-medium">
+          <h2 className="text-white text-[22px] font-medium text-center">
             {items[activeIndex].name}
           </h2>
         </div>
-        <div className="w-full">
-          <p className="text-white w-[362px] text-[22px] font-medium leading-10">
+        <div className="w-full items-center justify-center">
+          <p className="text-white ml-10 w-[362px] mt-[138px] text-[22px] font-medium leading-10">
             {items[activeIndex].description}
           </p>
         </div>
