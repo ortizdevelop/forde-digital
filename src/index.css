@@ -25,6 +25,22 @@ body {
   @apply text-white p-4 mx-[41px] font-normal text-[24px] before:block before:absolute before:bg-white before:content-[""] before:w-[0px] before:h-[2px] before:top-2 after:block after:absolute after:bg-white after:content-[""] after:w-[0px] after:h-[2px] after:bottom-2 relative inline-block before:transition-all after:transition-all hover:before:w-full hover:after:w-full hover:after:right-0 hover:before:left-0 before:left-0 after:right-0 duration-[350ms] before:duration-[350ms] after:duration-[350ms] max-xl:mx-[20px] max-xl:text-[18px];
 }
 
+.burger-menu-inactive {
+  @apply max-sm:hidden;
+}
+
+.burger-menu-active {
+  @apply max-sm:block max-sm:transition-all max-sm:duration-300;
+}
+
+.burger-menu-line {
+  @apply relative my-[6px] inline-block before:block before:absolute before:content-[''] before:w-[40px] before:h-[4px] before:bg-[#00E0FF] before:top-[0px] before:right-[-0px] before:rounded-lg before:transition-all before:duration-300;
+}
+
+.burger-menu-button {
+  @apply my-[9px] mx-[58px] text-xl font-light leading-loose;
+}
+
 .contact-link {
   @apply mt-[104px] text-[36px] text-[rgb(28,28,28)] font-normal py-4 px-[30px] bg-stone-300 rounded-lg transition-all duration-300 border border-stone-300 hover:bg-transparent hover:text-stone-300;
 }
@@ -42,19 +58,19 @@ body {
 }
 
 .feedback-list {
-  @apply inline-block w-[534px] h-[62px] bg-[#1E1E1E] rounded-[25px] items-center text-center p-3 transition-all duration-500 hover:h-[225px];
+  @apply inline-block w-[534px] h-[62px] bg-[#1E1E1E] rounded-[25px] items-center text-center p-3 transition-all duration-500 hover:h-[225px] max-sm:w-[256px] max-sm:h-[62px];
 }
 
 .feedback-title {
-  @apply text-white text-[24px] font-semibold group-hover:text-start transition-all duration-500;
+  @apply text-white text-[24px] font-semibold group-hover:text-start transition-all duration-500 max-sm:w-[264px] max-sm:text-white max-sm:text-base max-sm:font-semibold;
 }
 
 .feedback-text {
-  @apply w-[487px] text-white text-[20px] px-[20px] mt-[35px] font-light leading-7 opacity-0 invisible group-hover:visible group-hover:opacity-100 text-start transition-all duration-75 group-hover:duration-[1250ms];
+  @apply w-[487px] text-white text-[20px] px-[20px] mt-[35px] font-light leading-7 opacity-0 invisible group-hover:visible group-hover:opacity-100 text-start transition-all duration-75 group-hover:duration-[1250ms] max-sm:text-sm max-sm:font-light max-sm:leading-snug max-sm:max-w-[239px] max-sm:px-[0px];
 }
 
 .footer-list {
-  @apply mx-4 before:block before:absolute before:bg-white before:content-[""] before:w-[0px] before:h-[2px] before:top-0 after:block after:absolute after:bg-white after:content-[""] after:w-[0px] after:h-[2px] after:bottom-0 relative inline-block before:transition-all after:transition-all hover:before:w-full hover:after:w-full hover:after:right-0 hover:before:left-0 before:left-0 after:right-0 duration-[350ms] before:duration-[350ms] after:duration-[350ms];
+  @apply mx-4 before:block before:absolute before:bg-white before:content-[""] before:w-[0px] before:h-[2px] before:top-0 after:block after:absolute after:bg-white after:content-[""] after:w-[0px] after:h-[2px] after:bottom-0 relative inline-block before:transition-all after:transition-all hover:before:w-full hover:after:w-full hover:after:right-0 hover:before:left-0 before:left-0 after:right-0 duration-[350ms] before:duration-[350ms] after:duration-[350ms] max-sm:mb-[16px];
 }
 
 .footer-btn {
@@ -91,6 +107,10 @@ body {
 
 .form-inactive {
   @apply hidden;
+}
+
+.form-small-adapt {
+  @apply max-sm:sticky max-sm:w-full  max-sm:top-[0%] max-sm:left-[0%] form-bg max-sm:py-[0px] max-sm:px-[0px];
 }
 
 .policy-active {

@@ -648,13 +648,13 @@ function Feedback() {
   };
 
   return (
-    <article className="text-white mt-[122px] px-[98px]">
+    <article className="text-white mt-[122px] px-[98px] max-sm:px-[9px]">
       <div className="flex flex-col items-center justify-center">
         <h5 className="blue-line text-[36px] font-normal items-start justify-start w-full">
           Часто задаваемые вопросы
         </h5>
         <section id="feedback" className="flex items-center justify-center">
-          <ul className="flex w-[70%] flex-wrap items-center justify-between mt-[34px]">
+          <ul className="flex w-[70%] flex-wrap items-center justify-between mt-[34px] max-sm:w-[90%]">
             <li className="group feedback-list mb-[58px]">
               <div className="flex items-center justify-around">
                 <p className="feedback-title">Какие услуги вы предлагаете?</p>

@@ -54,11 +54,15 @@ function Slider(props) {
   };
 
   return (
-    <Stack direction="row" className="bg-[#1E1E1E] p-5 rounded-lg" spacing={2}>
+    <Stack
+      direction="row"
+      className="bg-[#1E1E1E] p-5 rounded-lg max-sm:hidden max-sm:bg-transparent max-sm:p-0"
+      spacing={2}
+    >
       <Carousel
         autoPlay={true}
         animation="slide"
-        className="w-full flex items-center justify-center"
+        className="w-full flex items-center justify-center max-sm:flex max-sm:flex-col"
         duration={700}
         indicators={true}
         navButtonsAlwaysVisible={true}
@@ -73,7 +77,8 @@ function Slider(props) {
         }}
         height="408px"
         sx={{
-          width: "712px",
+          maxWidth: "712px",
+          minWidth: "286px",
         }}
         indicatorContainerProps={{
           style: {
@@ -93,7 +98,7 @@ function Slider(props) {
           <Item key={i} item={item} />
         ))}
       </Carousel>
-      <div className="name-content flex flex-col relative pl-5">
+      <div className="name-content flex flex-col relative pl-5 max-sm:hidden">
         <div className="w-full">
           <h2 className="text-white text-[22px] font-medium text-center">
             {items[activeIndex].name}
@@ -113,13 +118,28 @@ function Item(props) {
   return (
     <Paper
       style={{
-        width: "712px",
-        height: "408px",
+        maxWidth: "712px",
+        maxHeight: "408px",
+        minWidth: "286px",
+        minHeight: "269px",
         position: "relative",
+        backgroundColor: "#1c1c1c",
         zIndex: 2,
       }}
     >
       <img src={props.item.slide} alt={props.item.description} />
+      <div className="hidden max-sm:visible bg-[#1c1c1c]">
+        <div className="w-full">
+          <h2 className="text-white text-[22px] font-medium text-center">
+            {props.item.name}
+          </h2>
+        </div>
+        <div className="w-full items-center justify-center">
+          <p className="text-white text-[22px] font-medium leading-10">
+            {props.item.description}
+          </p>
+        </div>
+      </div>
     </Paper>
   );
 }

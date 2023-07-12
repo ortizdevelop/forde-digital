@@ -483,13 +483,13 @@ function Footer() {
   return (
     <footer className="text-white w-full bg-[#1E1E1E] py-11">
       <PolicyForm />
-      <div className="flex pl-[96px] items-center justify-center">
-        <nav className="w-full flex items-center justify-around">
-          <p className="text-neutral-500 text-[20px] font-light leading-loose">
+      <div className="flex pl-[96px] items-center justify-center max-sm:pl-[0px]">
+        <nav className="w-full flex items-center justify-around max-sm:flex-col">
+          <p className="text-neutral-500 text-[20px] font-light leading-loose max-sm:order-3 max-sm:text-center max-sm:mb-[28px]">
             ©2023 ForgeDigital | Все права защищены
           </p>
-          <img src={logo} alt="" className="" />
-          <ul className="flex items-center">
+          <img src={logo} alt="" className="max-sm:order-1 max-sm:mb-12" />
+          <ul className="flex items-center max-sm:order-2 max-sm:flex-col">
             <li className="footer-list">
               <button
                 onClick={(e) => handleButtonClick(e, "home")}

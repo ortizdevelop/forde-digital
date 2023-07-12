@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import logo from "../images/Logo.png";
 import Button from "@mui/material/Button";
@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 function Navbar() {
   const [formClass, setFormClass] = useState("form-inactive");
   const [policyClass, setPolicyClass] = useState("policy-inactive");
+  const [burgerIsActive, setBurgerActive] = useState("burger-menu-inactive");
   const [isOpen, setIsOpen] = useState(false);
 
   const handleButtonClick = (event, id) => {
@@ -24,6 +25,14 @@ function Navbar() {
 
   const [isActive, setIsActive] = useState(false);
 
+  const handleBurgerMenuActive = () => {
+    setBurgerActive("burger-menu-active");
+  };
+
+  const handleBurgerMenuInActive = () => {
+    setBurgerActive("burger-menu-inactive");
+  };
+
   const handleInActiveFormButtonClick = () => {
     setFormClass("form-inactive");
   };
@@ -34,6 +43,72 @@ function Navbar() {
 
   const handleInActivePolicyButtonClick = () => {
     setPolicyClass("policy-inactive");
+  };
+
+  const BurgerMenu = () => {
+    return (
+      <nav
+        className={`hidden h-0 transition-all duration-300 max-sm:absolute max-sm:top-0 max-sm:right-0 max-sm:transition-all max-sm:duration-300 ${burgerIsActive}`}
+      >
+        <ul className="flex flex-col transition-all duration-300 h-0 w-full max-sm:h-[288px] bg-[#1C1C1C] justify-center items-center max-sm:transition-all max-sm:duration-300 bg-anim">
+          <li className="burger-menu-button">
+            <button
+              onClick={(e) => {
+                handleButtonClick(e, "about");
+                handleBurgerMenuInActive();
+              }}
+              className=""
+            >
+              О нас
+            </button>
+          </li>
+          <li className="burger-menu-button">
+            <button
+              onClick={(e) => {
+                handleButtonClick(e, "team");
+                handleBurgerMenuInActive();
+              }}
+              className=""
+            >
+              Команда
+            </button>
+          </li>
+          <li className="burger-menu-button">
+            <button
+              onClick={(e) => {
+                handleFormButtonClick();
+                handleBurgerMenuInActive();
+              }}
+              className=""
+            >
+              Написать нам
+            </button>
+          </li>
+          <li className="burger-menu-button">
+            <button
+              onClick={(e) => {
+                handleButtonClick(e, "policy");
+                handleBurgerMenuInActive();
+              }}
+              className=""
+            >
+              Политика
+            </button>
+          </li>
+          <li className="burger-menu-button">
+            <button
+              onClick={(e) => {
+                handleButtonClick(e, "feedback");
+                handleBurgerMenuInActive();
+              }}
+              className=""
+            >
+              FAQ
+            </button>
+          </li>
+        </ul>
+      </nav>
+    );
   };
 
   const FeedbackForm = () => {
@@ -76,7 +151,7 @@ function Navbar() {
         className={`fixed flex flex-col w-full h-[100vh] top-[0%] left-[0%] bg-[rgb(28,28,28,0.85)] z-10 form-bg-anim ${formClass}`}
         onSubmit={handleSubmit}
       >
-        <div className="sticky w-[65%] top-[10%] left-[16%] form-bg py-[80px] px-[336px] bg-anim">
+        <div className="sticky w-[65%] top-[10%] left-[16%] form-bg py-[80px] px-[336px] bg-anim form-small-adapt">
           <button
             onClick={handleInActiveFormButtonClick}
             className="absolute top-5 right-[30px]"
@@ -96,7 +171,7 @@ function Navbar() {
               />
             </svg>
           </button>
-          <p className="text-center text-white text-[48px] font-bold leading-10 mb-4">
+          <p className="text-center text-white text-[48px] font-bold leading-10 mb-4 max-sm:text-xl max-sm:font-bold max-sm:leading-normal">
             Свяжитесь с нами
           </p>
           <p className="mb-12 text-center text-white text-[18px] font-normal leading-relaxed">
@@ -659,26 +734,13 @@ function Navbar() {
   };
 
   return (
-    <header id="home" className="header w-full text-white pb-[203px]">
-      <nav className="flex flex-row items-center justify-around my-[41px] mx-0 xl:justify-around">
+    <header
+      id="home"
+      className="header w-full text-white pb-[203px] max-sm:pb-5"
+    >
+      <nav className="flex flex-row items-center justify-around my-[41px] mx-0 xl:justify-around max-sm:justify-between max-sm:px-5">
         <img className="" src={logo} alt="" />
         <ul className="flex items-center">
-          <li className="hidden max-md:block cursor-pointer">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-          </li>
           <li className="max-md:hidden lg:block">
             <button
               onClick={(e) => handleButtonClick(e, "about")}
@@ -711,15 +773,26 @@ function Navbar() {
               Вопросы
             </button>
           </li>
+
+          <li className="group hidden max-md:block cursor-pointer">
+            <button
+              onClick={handleBurgerMenuActive}
+              className="flex flex-col items-center"
+            >
+              <span className="burger-menu-line"></span>
+              <span className="burger-menu-line group-hover:before:w-[20px]"></span>
+              <span className="burger-menu-line"></span>
+            </button>
+          </li>
         </ul>
-        <button className="text-white transition-all duration-300 opacity-50 hover:opacity-100 before-inset-1 relative inline-block ">
+        <button className="text-white transition-all duration-300 opacity-50 hover:opacity-100 before-inset-1 relative inline-block max-sm:hidden">
           contact@
           <span className="text-[#00E0FF]">forgedigital.ru</span>
         </button>
       </nav>
-      <article className="flex mx-[98px] my-[178px]">
+      <article className="flex mx-[98px] my-[178px] max-sm:mx-[18px]">
         <section>
-          <h1 className="text-[64px] font-normal">
+          <h1 className="text-[64px] font-normal max-sm:text-[26px] max-sm:font-extralight max-sm:leading-tight">
             Создаем сайты для вас на <br /> основе ваших <br /> пожеланий
           </h1>
           <Button
@@ -731,7 +804,7 @@ function Navbar() {
               border: "2px #CECECE solid",
               padding: 2,
               marginTop: 10,
-              fontSize: 36,
+              fontSize: 26,
               fontWeight: 500,
               textTransform: "initial",
             }}
@@ -742,6 +815,7 @@ function Navbar() {
           </Button>
           <FeedbackForm />
           <PolicyForm />
+          <BurgerMenu />
         </section>
       </article>
     </header>
