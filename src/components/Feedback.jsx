@@ -65,10 +65,10 @@ function Feedback() {
         className={`fixed flex flex-col w-full h-[100vh] top-[0%] left-[0%] bg-[rgb(28,28,28,0.85)] z-10 form-bg-anim ${formClass}`}
         onSubmit={handleSubmit}
       >
-        <div className="sticky w-[65%] top-[10%] left-[16%] form-bg py-[80px] px-[336px] bg-anim">
+        <div className="sticky w-[65%] top-[10%] left-[16%] form-bg py-[80px] px-[336px] bg-anim form-small-adapt">
           <button
             onClick={handleInActiveFormButtonClick}
-            className="absolute top-5 right-[30px]"
+            className="absolute top-5 right-[30px] max-sm:top-0 max-sm:right-[10px]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -85,10 +85,10 @@ function Feedback() {
               />
             </svg>
           </button>
-          <p className="text-center text-white text-[48px] font-bold leading-10 mb-4">
+          <p className="text-center text-white text-[48px] font-bold leading-10 mb-4 max-sm:text-xl max-sm:font-bold max-sm:leading-normal">
             Свяжитесь с нами
           </p>
-          <p className="mb-12 text-center text-white text-[18px] font-normal leading-relaxed">
+          <p className="mb-12 text-center text-white text-[18px] font-normal leading-relaxed max-sm:text-center max-sm:text-white max-sm:text-lg max-sm:font-normal max-sm:leading-[27px]">
             Заполните поля и отправьте заявку, для того чтобы мы начали работать
             с вами!
           </p>
@@ -149,17 +149,23 @@ function Feedback() {
               id="checkbox"
               value={checkbox}
               required
-              className="mr-3 w-[18px] h-[18px] relative bg-white border border border border border-black"
+              className="mr-3 w-[18px] h-[18px] relative bg-white border border border border border-black max-sm:hidden"
               checked={checkbox}
               onChange={(event) => setCheckbox(event.target.checked)}
             />
-            <p className="text-white text-[14px] font-normal leading-tight">
+            <p className="text-white text-[14px] font-normal leading-tight max-sm:hidden">
               Я согласен с{" "}
               <button
                 onClick={handlePolicyButtonClick}
                 className="underline cursor-pointer"
               >
                 Политикой конфиденциальности
+              </button>
+            </p>
+            <p className="hidden max-sm:block text-sm text-center font-normal leading-[21px]">
+              Нажимая на кнопку вы подтверждаете что принимаете{" "}
+              <button onClick={handlePolicyButtonClick} className="underline">
+                Политика обработки персональных данных
               </button>
             </p>
           </div>
@@ -195,15 +201,17 @@ function Feedback() {
         action=""
         className={`fixed flex flex-col w-full h-[100vh] top-[0%] left-[0%] bg-[rgb(24,24,24,0.85)] z-10 form-bg-anim ${policyClass}`}
       >
-        <div className="fixed flex flex-col top-[0%] left-00%] form-bg py-[80px] px-[336px] bg-anim">
+        <div className="fixed flex flex-col h-full top-[0%] left-[0%] form-bg py-[80px] px-[336px] bg-anim policy-small-adapt">
           <label
-            className="text-[32px] text-center mb-11 font-normal"
+            className="text-[32px] text-center mb-11 font-normal max-sm:text-center max-sm:text-white max-sm:text-base max-sm:font-semibold max-sm:relative max-sm:top[21px] max-sm:mt-4"
             htmlFor=""
           >
-            Политика в отношении обработки персональных данных
+            <p className="">
+              Политика в отношении <br /> обработки персональных данных
+            </p>
           </label>
-          <div className="w-[1240px] h-[671px] bg-[#1E1E1E] rounded-tl-[25px] rounded-bl-[25px] overflow-auto scrollbar scrollbar-thumb-[#535353] scrollbar-track-[#3A3A3A] scrollbar-rounded-[5px]">
-            <div className="w-[1177px] h-[621px] p-5">
+          <div className="w-[1240px] h-[671px] bg-[#1E1E1E] rounded-tl-[25px] rounded-bl-[25px] overflow-auto scrollbar scrollbar-thumb-[#535353] scrollbar-track-[#3A3A3A] scrollbar-rounded-[5px] max-sm:max-w-[320px] max-sm:h-full">
+            <div className="w-[1177px] h-[621px] p-5 max-sm:w-full max-sm:h-full max-sm:overflow-auto max-sm:max-w-[1177px] max-sm:max-h-[621px]">
               <span className="text-white text-[16px] font-normal leading-loose">
                 Политика в отношении обработки персональных данных
                 <br />
@@ -627,16 +635,16 @@ function Feedback() {
               </span>
             </div>
           </div>
-          <div className="w-full flex items-center justify-end mt-[55px]">
+          <div className="w-full flex items-center justify-center mt-[55px] max-sm:mt-[24px] max-sm:flex-col-reverse">
             <button
               onClick={handleInActivePolicyButtonClick}
-              className="text-neutral-600 text-[32px] font-normal leading-loose mr-[106px] py-[18px] px-[56px] rounded-2xl transition-all duration-300 hover:bg-[#3A3A3A] hover:text-white"
+              className="text-neutral-600 text-[32px] font-normal leading-loose mr-[106px] py-[18px] px-[56px] rounded-2xl transition-all duration-300 hover:bg-[#3A3A3A] hover:text-white max-sm:mr-[0px] max-sm:text-[18px]"
             >
               Отмена
             </button>
             <button
               onClick={handleInActivePolicyButtonClick}
-              className="text-[32px] font-normal leading-loose py-[18px] px-[56px] rounded-2xl transition-all duration-300 hover:bg-[#3A3A3A]"
+              className="text-[32px] font-normal leading-loose py-[18px] px-[56px] rounded-2xl transition-all duration-300 hover:bg-[#3A3A3A] max-sm:mr-[0px] max-sm:text-[24px]"
               type="submit"
             >
               Принимаю

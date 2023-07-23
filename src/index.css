@@ -90,7 +90,7 @@ body {
 }
 
 .form-input {
-  @apply mb-[24px] text-[#1E1E1E] h-12 p-3 bg-white border border border border border-black;
+  @apply mb-[24px] text-[#1E1E1E] h-12 p-3 bg-white border border border border border-black rounded-lg;
 }
 
 .form-blue-line {
@@ -98,7 +98,7 @@ body {
 }
 
 .form-textarea {
-  @apply mb-[24px] text-[#1E1E1E] p-3;
+  @apply mb-[24px] text-[#1E1E1E] p-3 rounded-lg;
 }
 
 .form-active {
@@ -107,10 +107,6 @@ body {
 
 .form-inactive {
   @apply hidden;
-}
-
-.form-small-adapt {
-  @apply max-sm:sticky max-sm:w-full  max-sm:top-[0%] max-sm:left-[0%] form-bg max-sm:py-[0px] max-sm:px-[0px];
 }
 
 .policy-active {
@@ -136,6 +132,14 @@ body {
 
 .bg-anim {
   animation: animation-bg 0.5s ease-in-out;
+}
+
+.form-small-adapt {
+  @apply max-sm:sticky max-sm:w-full max-sm:top-[3%] max-sm:left-[0%] form-bg max-sm:py-[0px] max-sm:px-[10px] max-sm:pb-5 max-sm:pt-5;
+}
+
+.policy-small-adapt {
+  @apply max-sm:sticky max-sm:w-full max-sm:flex max-sm:flex-col max-sm:top-[0%] max-sm:left-[0%] form-bg max-sm:py-[0px] max-sm:px-[0px];
 }
 
 @keyframes animation-bg {

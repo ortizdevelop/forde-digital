@@ -29,15 +29,17 @@ function Footer() {
         action=""
         className={`fixed flex flex-col w-full h-[100vh] top-[0%] left-[0%] bg-[rgb(24,24,24,0.85)] z-10 form-bg-anim ${policyClass}`}
       >
-        <div className="fixed flex flex-col top-[0%] left-00%] form-bg py-[80px] px-[336px] bg-anim">
+        <div className="fixed flex flex-col h-full top-[0%] left-[0%] form-bg py-[80px] px-[336px] bg-anim policy-small-adapt">
           <label
-            className="text-[32px] text-center mb-11 font-normal"
+            className="text-[32px] text-center mb-11 font-normal max-sm:text-center max-sm:text-white max-sm:text-base max-sm:font-semibold max-sm:relative max-sm:top[21px] max-sm:mt-4"
             htmlFor=""
           >
-            Политика в отношении обработки персональных данных
+            <p className="">
+              Политика в отношении <br /> обработки персональных данных
+            </p>
           </label>
-          <div className="w-[1240px] h-[671px] bg-[#1E1E1E] rounded-tl-[25px] rounded-bl-[25px] overflow-auto scrollbar scrollbar-thumb-[#535353] scrollbar-track-[#3A3A3A] scrollbar-rounded-[5px]">
-            <div className="w-[1177px] h-[621px] p-5">
+          <div className="w-[1240px] h-[671px] bg-[#1E1E1E] rounded-tl-[25px] rounded-bl-[25px] overflow-auto scrollbar scrollbar-thumb-[#535353] scrollbar-track-[#3A3A3A] scrollbar-rounded-[5px] max-sm:max-w-[320px] max-sm:h-full">
+            <div className="w-[1177px] h-[621px] p-5 max-sm:w-full max-sm:h-full max-sm:overflow-auto max-sm:max-w-[1177px] max-sm:max-h-[621px]">
               <span className="text-white text-[16px] font-normal leading-loose">
                 Политика в отношении обработки персональных данных
                 <br />
@@ -461,16 +463,16 @@ function Footer() {
               </span>
             </div>
           </div>
-          <div className="w-full flex items-center justify-end mt-[55px]">
+          <div className="w-full flex items-center justify-center mt-[55px] max-sm:mt-[24px] max-sm:flex-col-reverse">
             <button
               onClick={handleInActivePolicyButtonClick}
-              className="text-neutral-600 text-[32px] font-normal leading-loose mr-[106px] py-[18px] px-[56px] rounded-2xl transition-all duration-300 hover:bg-[#3A3A3A] hover:text-white"
+              className="text-neutral-600 text-[32px] font-normal leading-loose mr-[106px] py-[18px] px-[56px] rounded-2xl transition-all duration-300 hover:bg-[#3A3A3A] hover:text-white max-sm:mr-[0px] max-sm:text-[18px]"
             >
               Отмена
             </button>
             <button
               onClick={handleInActivePolicyButtonClick}
-              className="text-[32px] font-normal leading-loose py-[18px] px-[56px] rounded-2xl transition-all duration-300 hover:bg-[#3A3A3A]"
+              className="text-[32px] font-normal leading-loose py-[18px] px-[56px] rounded-2xl transition-all duration-300 hover:bg-[#3A3A3A] max-sm:mr-[0px] max-sm:text-[24px]"
               type="submit"
             >
               Принимаю

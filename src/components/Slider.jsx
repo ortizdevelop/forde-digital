@@ -62,9 +62,9 @@ function Slider(props) {
       <Carousel
         autoPlay={true}
         animation="slide"
-        className="w-full flex items-center justify-center max-sm:flex max-sm:flex-col"
+        className="w-[792px] flex items-center justify-center max-sm:flex max-sm:flex-col"
         duration={700}
-        indicators={true}
+        indicators={false}
         navButtonsAlwaysVisible={true}
         indicatorIconButtonProps={{
           style: {
@@ -118,28 +118,18 @@ function Item(props) {
   return (
     <Paper
       style={{
-        maxWidth: "712px",
-        maxHeight: "408px",
-        minWidth: "286px",
-        minHeight: "269px",
+        minWidth: "712px",
+        minHeight: "408px",
         position: "relative",
         backgroundColor: "#1c1c1c",
         zIndex: 2,
       }}
     >
-      <img src={props.item.slide} alt={props.item.description} />
-      <div className="hidden max-sm:visible bg-[#1c1c1c]">
-        <div className="w-full">
-          <h2 className="text-white text-[22px] font-medium text-center">
-            {props.item.name}
-          </h2>
-        </div>
-        <div className="w-full items-center justify-center">
-          <p className="text-white text-[22px] font-medium leading-10">
-            {props.item.description}
-          </p>
-        </div>
-      </div>
+      <img
+        className="w-[712px]"
+        src={props.item.slide}
+        alt={props.item.description}
+      />
     </Paper>
   );
 }

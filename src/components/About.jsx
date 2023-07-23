@@ -1,4 +1,5 @@
 import Slider from "./Slider";
+import SliderSmall from "./SliderSmall";
 
 function About() {
   return (
@@ -16,7 +17,7 @@ function About() {
         </section>
         <section
           id="projects"
-          className="flex flex-col items-center max-sm:mt-[32px]"
+          className="flex flex-col items-center max-sm:mt-[32px] max-sm:hidden"
         >
           <h3 className="w-full blue-line text-[36px] font-normal mb-[42px] items-start justify-start">
             Наши работы
@@ -25,6 +26,17 @@ function About() {
             <div className="w-full flex items-center justify-center">
               <Slider></Slider>
             </div>
+          </div>
+        </section>
+        <section 
+          id="projects"
+          className="hidden max-sm:block max-sm:mt-[32px] max-sm:mb-[45px]"
+        >
+          <h3 className="w-full blue-line text-[36px] font-normal mb-[42px] items-start justify-start">
+            Наши работы
+          </h3>
+          <div className="  ">
+            <SliderSmall />
           </div>
         </section>
         <section
